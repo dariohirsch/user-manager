@@ -1,14 +1,8 @@
-import { useState } from "react"
 import "./App.css"
+import useForm from "./hooks/useForm"
 
 function App() {
-	const [form, setForm] = useState({ name: "" })
-	const handleChange = (e) => {
-		setForm({
-			...form,
-			[e.target.name]: e.target.value,
-		})
-	}
+	const [form, handleChange] = useForm({ name: "" })
 	return (
 		<form>
 			<input name="name" placeholder="Nombre" value={form.name} onChange={handleChange}></input>
